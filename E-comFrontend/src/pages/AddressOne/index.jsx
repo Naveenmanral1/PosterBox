@@ -309,18 +309,6 @@ export default function AddressOnePage() {
                         />
                       </div>
                     </div>
-                    <a
-                      href="https://www.youtube.com/embed/bv8Fxk0sz71"
-                      target="_blank"
-                    >
-                      <Button
-                        color="blue_gray_900_01"
-                        shape="round"
-                        className="min-w-[178px] rounded-md px-6 font-medium sm:px-5"
-                      >
-                        ADD ADDRESS
-                      </Button>
-                    </a>
                   </div>
                 </div>
                
