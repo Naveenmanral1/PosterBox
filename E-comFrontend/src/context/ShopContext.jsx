@@ -25,7 +25,7 @@ const ShopContextProvider = (props) => {
     const addToCart = async(itemId , size) => {
 
       if(!size){
-        toast.error('Select Product Size')
+        toast.error('Select Product Size' , { position: "top-right", autoClose: 2000 })
         return;
       }
     
@@ -42,6 +42,8 @@ const ShopContextProvider = (props) => {
         cartData[itemId][size] = 1;
       }
       setCartItems(cartData)
+
+      toast.success("Product added to cart!", { position: "top-center", autoClose: 2000 });
 
       if(authStatus){
         try {
@@ -61,6 +63,7 @@ const ShopContextProvider = (props) => {
         wishlistData[itemId]=true;
       }
       setWishlistItem(wishlistData)
+      toast.success("Product added to wishlist!", { position: "top-center", autoClose: 2000 });
       if(authStatus){
         try{
           await api.post(backendUrl + '/api/v1/wishlist/addtowishlist',{itemId })

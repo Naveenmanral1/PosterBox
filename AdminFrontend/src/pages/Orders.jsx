@@ -13,7 +13,6 @@ const order = ({ token }) => {
         backendUrl + "/api/v1/order/all-orders",
         { headers: { token } }
       );
-      console.log(response.data);
       if (response.data.success) {
         setOrders(response.data.data.reverse());
       } else {
@@ -64,7 +63,7 @@ const order = ({ token }) => {
                   className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-4 text-xs sm:text-sm text-gray-700"
                 >
                   <div className=" p-4">
-                    <img src={box} className="max-w-24" alt="" />
+                    <img src={box2} className="max-w-24" alt="" />
                   </div>
                   <div>
                      <div>
