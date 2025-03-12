@@ -36,6 +36,10 @@ function App() {
               path="/order"
               element={<Order token={token} setToken={setToken} />}
             />
+             <Route
+              path="/"
+              element={<Login token={token} setToken={setToken} />}
+            />
           </Routes>
         </>
       )}

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
 import { art } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken  , token}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -29,6 +29,12 @@ const Login = ({ setToken }) => {
     }
   };
 
+  useEffect(()=> {
+     if(token){
+    navigate('/order')
+  }
+  })
+ 
   return (
     <div className="flex w-screen h-screen bg-gray-100">
       <div className="hidden md:flex w-1/2">
