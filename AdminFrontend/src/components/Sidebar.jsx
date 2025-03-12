@@ -1,37 +1,63 @@
 import React from "react";
-import {NavLink} from 'react-router-dom'
-import img from '../assets/add.png'
-import {add , list , order } from '../assets/assets.js'
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-    return (
-      <div className=" fixed left-0 top-16 h-full w-[18%] ">
-      <div className="bg-gray-800 h-screen text-white p-4 flex flex-col space-y-4">
-          <NavLink 
-          className="flex items-center gap-3 justify-center bg-gray-100 hover:bg-gray-300 py-2 px-2 rounded-lg transition-all"
-          to="/add">
-            <img className="w-5 h-5" src={add} alt="" />
-            <p className="hidden md:block text-black">Add Items</p>
-          </NavLink>
-
-          <NavLink 
-          className="flex items-center justify-center gap-3 bg-gray-100 hover:bg-gray-300 py-2 px-2 rounded-lg transition-all"
-          to="/list">
-            <img className="w-6 h-6" src={list} alt="" />
-            <p className="hidden md:block text-black">Items List</p>
-          </NavLink>
-
-          <NavLink 
-          className="flex items-center justify-center gap-3 bg-gray-100 hover:bg-gray-300 py-2 px-2 rounded-lg transition-all"
-          to="/order">
-            <img className="w-6 h-6" src={order} alt="" />
-            <p className="hidden md:block text-black">Orders</p>
-          </NavLink>
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
+  return (
+    <div className=" flex  flex-col items-center gap-4 md:w-full">
+      <div
+        onClick={() => navigate("/add")}
+        className={`flex self-stretch rounded-md px-4 py-3.5 ${
+          isActive("/add") ? "bg-gray-950 " : "bg-white border border-gray-300"
+        }`}
+      >
+        <div
+          as="p"
+          className={`text-[18px] font-medium  ${
+            isActive("/add") ? "text-white " : "text-black"
+          }`}
+        >
+          Add Items
+        </div>
       </div>
-</div>
 
-    );
-  }; 
+      <div
+        onClick={() => navigate("/list")}
+        className={`flex self-stretch rounded-md px-4 py-3.5 ${
+          isActive("/list") ? "bg-gray-950 " : "bg-white border border-gray-300"
+        }`}
+      >
+        <div
+          as="p"
+          className={`text-[18px] font-medium  ${
+            isActive("/list") ? "text-white " : "text-black"
+          }`}
+        >
+          Items List
+        </div>
+      </div>
 
-  export default Sidebar;
+      <div
+        onClick={() => navigate("/order")}
+        className={`flex self-stretch rounded-md px-4 py-3.5 ${
+          isActive("/order")
+            ? "bg-gray-950 "
+            : "bg-white border border-gray-300"
+        }`}
+      >
+        <div
+          as="p"
+          className={`text-[18px] font-medium  ${
+            isActive("/order") ? "text-white " : "text-black"
+          }`}
+        >
+          Orders List
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;

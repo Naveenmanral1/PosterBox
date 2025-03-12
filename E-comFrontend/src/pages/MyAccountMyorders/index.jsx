@@ -46,7 +46,6 @@ export default function MyAccountMyOrderPage() {
 
   return (
     <>
-    
       <div className="flex w-full flex-col gap-[90px] bg-white-a700 md:gap-[67px] sm:gap-[45px]">
         <div className="flex flex-col gap-6">
           <Header />

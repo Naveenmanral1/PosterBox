@@ -2,16 +2,14 @@ import { Button, Img, Heading, Text } from "../index.js";
 import React from "react";
 
 export default function ProductOrderDetails({
-
   buyAgainButtonText = "Buy it again",
   trackPackageButtonText = "Track package",
-  item
+  item,
 }) {
   return (
     <div
       className={` flex flex-col items-start self-stretch gap-3.5 p-3 border-gray-300 border border-solid flex-1 rounded-md`}
     >
-   
       <div className="flex self-stretch">
         <Img
           src={item.images[0]}
@@ -42,31 +40,31 @@ export default function ProductOrderDetails({
                 {`Payment : ${item.paymentMethod}`}
               </Text>
               <Text
-  size="textxs"
-  as="p"
-  className={`text-[14px] font-normal ${
-    item.paymentMethod === "Razorpay" && item.payment === true
-      ? "text-green-500"  // Green for Success
-      : item.paymentMethod === "COD"
-      ? "text-yellow-500" // Yellow for Pending
-      : "text-red-500"    // Red for Failed
-  }`}
->
-  {`Payment Status: ${
-    item.paymentMethod === "Razorpay" && item.payment === true
-      ? "Success"
-      : item.paymentMethod === "COD"
-      ? "Pending"
-      : "Failed"
-  }`}
-</Text>
+                size="textxs"
+                as="p"
+                className={`text-[14px] font-normal ${
+                  item.paymentMethod === "Razorpay" && item.payment === true
+                    ? "text-green-500" // Green for Success
+                    : item.paymentMethod === "COD"
+                    ? "text-yellow-500" // Yellow for Pending
+                    : "text-red-500" // Red for Failed
+                }`}
+              >
+                {`Payment Status: ${
+                  item.paymentMethod === "Razorpay" && item.payment === true
+                    ? "Success"
+                    : item.paymentMethod === "COD"
+                    ? "Pending"
+                    : "Failed"
+                }`}
+              </Text>
 
               <Text
                 size="textxs"
                 as="p"
                 className="text-[14px] font-normal text-blue_gray-200_01"
               >
-                {`Order Placed : ${new Date (item.createdAt).toDateString()}`}
+                {`Order Placed : ${new Date(item.createdAt).toDateString()}`}
               </Text>
             </div>
             <div className="flex gap-[9px] self-stretch">
@@ -102,13 +100,13 @@ export default function ProductOrderDetails({
               shape="round"
               className="min-w-[200px] rounded-md ! border px-[33px] font-medium sm:px-5"
             >
-                              {` ${
-  item.paymentMethod === "Razorpay" && item.payment === true
-    ? `${item.status}`
-    : item.paymentMethod === "COD"
-    ? `${item.status}`
-    : "Payment Failed"
-}`}
+              {` ${
+                item.paymentMethod === "Razorpay" && item.payment === true
+                  ? `${item.status}`
+                  : item.paymentMethod === "COD"
+                  ? `${item.status}`
+                  : "Payment Failed"
+              }`}
             </Button>
             <Button
               color="blue_700"
