@@ -2,28 +2,27 @@ import { useContext, useEffect, useState } from "react";
 import React from "react";
 import {Link} from "react-router-dom"
 import {ShopContext} from "../../context/ShopContext"
-//import { addToCart } from "../../store/cartSlice";
-//import { useSelector , useDispatch } from "react-redux";
-//import { toast } from "react-toastify";
 
- 
 export default function HompepageProductcard({ 
   images , id , title , price, sizes =[],
-  ...props })  {
+  })  {
   const [size, setSize] = useState("A4");
- // const [priceOf, setPriceOf] = useState(299);
-//  const [cartItems , setCartItems] = useState({})
+  const [hovered , setHovered] = useState(false);
   const {currency , addToCart} = useContext(ShopContext)
+  
 
   return (
-    <div className="max-w-x mx-auto mb-5 bg-white  overflow-hidden ">
+    <div className="max-w-x mx-auto mb-5 bg-white  overflow-hidden cursor-pointer hover:scale-105 ease-in-out duration-300">
      
       <Link to={`/productdetails/${id}`}>
-       <div className="w-full">
+       <div 
+        className="w-full"
+        onMouseEnter={()=>setHovered(true)}
+        onMouseLeave={()=>setHovered(false)} >
         <img
-          src={ `${images?.[0]}`}
+          src={hovered && images?.[1] ? images[1] : images?.[0]}
           alt="Manifestation | Gautama Buddha #01"
-          className="w-full object-cover"
+          className="w-full object-cover transition-opacity duration-500"
         />
       </div>
       </Link>
