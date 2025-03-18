@@ -17,7 +17,7 @@ import Authlayout from "./components/AuthLayout/AuthLayout.jsx"
 
 const ProjectRoutes = () => {
   let element = useRoutes([
-    // { path: "dashboard", element: <Home /> },
+    
     { path: "*", element: <NotFound /> },
     {
       path: "signin",
@@ -27,10 +27,6 @@ const ProjectRoutes = () => {
       path: "wishlist",
       element: <WishlistPage/>,
     },
-    // {
-    //   path: "checkout",
-    //   element: <CheckoutPage />,
-    // },
     {
       path: "myaccountpersonalinformation",
       element:( <Authlayout>
@@ -44,10 +40,6 @@ const ProjectRoutes = () => {
         <MyAccountMyOrderPage />
       </Authlayout>
       ),
-    },
-    {
-      path: "myaccountfaqs",
-      element: <MyAccountFAQsPage />,
     },
     {
       path: "signup",
